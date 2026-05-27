@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Energy Bar Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- ===== КРОК 0: Стартовий екран ===== -->
+  <section id="start-screen" class="screen active">
+    <div class="container">
+      <h1>Створи свій ENERGY BAR</h1>
+      <p>Пройди шлях від ідеї до прибутку! Робі вибір, обраховуй витрати, реагуй на події ринку та стань успішним підприємцем.</p>
+      <button id="start-btn">Почати гру</button>
+    </div>
+  </section>
+
+  <!-- ===== КРОК 1: Вибір батончика ===== -->
+  <section id="choose-bar" class="screen">
+    <h2>Крок 1: Обери свій продукт</h2>
+    <p>Що ти хочеш створити?</p>
+    <div class="card-container">
+      <div class="card" data-bar="energy">
+        <img src="assets/energy-bar.png" alt="Енергетичний батончик">
+        <h3>Енергетичний батончик</h3>
+        <p>Високий попит, стабільний ринок</p>
+      </div>
+      <div class="card" data-bar="protein">
+        <img src="assets/protein-bar.png" alt="Протеїновий батончик">
+        <h3>Протеїновий батончик</h3>
+        <p>Спортивна аудиторія, вищі ціни</p>
+      </div>
+      <div class="card" data-bar="granola">
+        <img src="assets/granola-bar.png" alt="Гранола батончик">
+        <h3>Гранола батончик</h3>
+        <p>Натуральний склад, еко-тренд</p>
+      </div>
+    </div>
+    <button id="bar-next-btn">Далі</button>
+  </section>
+
+  <!-- ===== КРОК 2: Створи свій продукт ===== -->
+  <section id="create-product" class="screen">
+    <h2>Крок 2: Створи свій продукт</h2>
+    <p>Обери компоненти та стратегію</p>
+    <div class="product-options">
+      <div class="option-column">
+        <h3>Сировина</h3>
+        <button data-value="10">Економ – 10 грн</button>
+        <button data-value="15">Стандарт – 15 грн</button>
+        <button data-value="22">Преміум – 22 грн</button>
+      </div>
+      <div class="option-column">
+        <h3>Упаковка</h3>
+        <button data-value="3">Проста – 3 грн</button>
+        <button data-value="7">Стандарт – 7 грн</button>
+        <button data-value="12">Преміум – 12 грн</button>
+      </div>
+      <div class="option-column">
+        <h3>Дизайн</h3>
+        <button data-value="2">Базовий – 2 грн</button>
+        <button data-value="5">Стандарт – 5 грн</button>
+        <button data-value="9">Преміум – 9 грн</button>
+      </div>
+      <div class="option-column">
+        <h3>Реклама</h3>
+        <button data-value="0">Не інвестую – 0 грн</button>
+        <button data-value="10">Базова – 10 грн</button>
+        <button data-value="20">Активна – 20 грн</button>
+      </div>
+    </div>
+    <button id="product-next-btn">Далі</button>
+  </section>
+
+  <!-- ===== КРОК 3: Введення собівартості ===== -->
+  <section id="cost-calc" class="screen">
+    <h2>Крок 3: Розрахуй собівартість</h2>
+    <p>Введи загальну собівартість одного батончика:</p>
+    <input type="number" id="cost-input" placeholder="Введи число" />
+    <button id="check-cost-btn">Перевірити</button>
+    <p id="cost-feedback"></p>
+  </section>
+
+  <!-- ===== КРОК 4: Вибір націнки ===== -->
+  <section id="markup" class="screen">
+    <h2>Крок 4: Обери націнку</h2>
+    <p>Вибери націнку і обрахуй ринкову ціну:</p>
+    <div class="markup-options">
+      <button data-markup="0.3">Низька +30%</button>
+      <button data-markup="0.6">Середня +60%</button>
+      <button data-markup="1.0">Висока +100%</button>
+    </div>
+    <input type="number" id="price-input" placeholder="Введи ринкову ціну" />
+    <button id="check-price-btn">Перевірити</button>
+    <p id="price-feedback"></p>
+  </section>
+
+  <!-- ===== КРОК 5: Події на ринку ===== -->
+  <section id="market-events" class="screen">
+    <h2>Крок 5: Події на ринку</h2>
+    <p id="event-text">Новий конкурент знизив ціну – продажі зменшились на 15%</p>
+    <p>Введи новий прибуток за місяць:</p>
+    <input type="number" id="profit-input" placeholder="Введи прибуток" />
+    <button id="check-profit-btn">Перевірити</button>
+    <p id="profit-feedback"></p>
+    <div class="event-actions">
+      <button data-action="lower">Знизити ціну</button>
+      <button data-action="keep">Залишити ціну</button>
+      <button data-action="increase">Підвищити ціну</button>
+    </div>
+  </section>
+
+  <!-- ===== КРОК 6: Підсумок ===== -->
+  <section id="summary" class="screen">
+    <h2>Твої результати</h2>
+    <p id="final-capital">Початковий капітал: 10,000 грн</p>
+    <p id="final-profit">Фінальний прибуток: –</p>
+    <p id="final-strategy">Твоя стратегія: –</p>
+    <button id="restart-btn">Пройти ще раз</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
